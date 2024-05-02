@@ -42,6 +42,8 @@ public class MusicBandsManager {
         String name = inputNotNullString(message);
         musicBand.setName(name);
 
+        Coordinates coordinates = createCoordinates();
+        musicBand.setCoordinates(coordinates);
 
 
 
@@ -67,15 +69,15 @@ public class MusicBandsManager {
         long y;
         while(true){
             y = (long) inputNumber(message, true, Long.class);
-            if (y <= -776){
+            if (y > -776){
                 break;
             }
             else {
-                System.out.println("y не должен быть больше -776");
+                System.out.println("y не должен быть меньше -776");
             }
         }
         coordinates.setY(y);
-        return null;
+        return coordinates;
     }
     private static String inputNotNullString(String message){
         while(true){
