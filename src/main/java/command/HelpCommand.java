@@ -1,6 +1,10 @@
 package command;
 
-public class HelpCommand implements Command {
+public class HelpCommand extends AbstractCommand {
+
+    public HelpCommand() {
+        super("help", "вывести справку по доступным командам");
+    }
 
     @Override
     public void execute(String[] commandParts) {
@@ -20,7 +24,6 @@ public class HelpCommand implements Command {
                 "sum_of_number_of_participants : вывести сумму значений поля numberOfParticipants для всех элементов коллекции\n" +
                 "count_less_than_genre genre : вывести количество элементов, значение поля genre которых меньше заданного\n" +
                 "filter_less_than_number_of_participants numberOfParticipants : вывести элементы, значение поля numberOfParticipants которых меньше заданного"
-
         );
     }
 }

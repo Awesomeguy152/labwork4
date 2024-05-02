@@ -1,18 +1,21 @@
 package command;
 
 import model.MusicBand;
+import utils.DataSource;
+
 
 import java.util.TreeSet;
 
-public class ShowCommand implements Command{
-    private TreeSet<MusicBand> data;
+public class ShowCommand extends AbstractCommand{
 
-    public ShowCommand(TreeSet<MusicBand> data) {
-        this.data = data;
+
+    public ShowCommand() {
+        super("show", "вывести в стандартный поток вывода все элементы коллекции в строковом представлении");
+
     }
 
     @Override
     public void execute(String[] commandParts) {
-        System.out.println(data);
+        System.out.println(DataSource.getCollection());
     }
 }
