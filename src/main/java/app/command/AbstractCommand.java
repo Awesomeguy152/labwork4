@@ -1,11 +1,21 @@
-package command;
+package app.command;
 
-import utils.DataInputHandler;
+import app.utils.DataInputHandler;
+import app.utils.DataInputHandler;
 
-public abstract class AbstractCommand implements Command{
+public abstract class AbstractCommand implements app.command.Command {
     private String name;
     private String description;
-    protected DataInputHandler dataInputHandler;
+
+    public static DataInputHandler dataInputHandler;
+
+    public DataInputHandler getDataInputHandler() {
+        return dataInputHandler;
+    }
+
+    public void setDataInputHandler(DataInputHandler dataInputHandler) {
+        this.dataInputHandler = dataInputHandler;
+    }
 
     public String getName() {
         return name;

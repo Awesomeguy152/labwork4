@@ -1,15 +1,18 @@
-package model;
+package app.model;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.ZonedDateTime;
 
-public class MusicBand {
+public class MusicBand implements Comparable<MusicBand> {
     private long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
+    @JsonFormat(pattern = "dd.MM.yyyy hh:mm")
     private java.time.ZonedDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private Integer numberOfParticipants; //Поле может быть null, Значение поля должно быть больше 0
-    private MusicGenre genre; //Поле может быть null
-    private Person frontMan; //Поле может быть null
+    private app.model.MusicGenre genre; //Поле может быть null
+    private app.model.Person frontMan; //Поле может быть null
 
     public long getId() {
         return id;
@@ -51,19 +54,39 @@ public class MusicBand {
         this.numberOfParticipants = numberOfParticipants;
     }
 
-    public MusicGenre getGenre() {
+    public app.model.MusicGenre getGenre() {
         return genre;
     }
 
-    public void setGenre(MusicGenre genre) {
+    public void setGenre(app.model.MusicGenre genre) {
         this.genre = genre;
     }
 
-    public Person getFrontMan() {
+    public app.model.Person getFrontMan() {
         return frontMan;
     }
 
-    public void setFrontMan(Person frontMan) {
+    public void setFrontMan(app.model.Person frontMan) {
         this.frontMan = frontMan;
+    }
+
+    @Override
+    public String toString() {
+        return "MusicBand{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", coordinates=" + coordinates +
+                ", creationDate=" + creationDate +
+                ", numberOfParticipants=" + numberOfParticipants +
+                ", genre=" + genre +
+                ", frontMan=" + frontMan +
+                '}';
+    }
+
+    @Override
+    public int compareTo(MusicBand o) {
+        int firstNumber = numberOfParticipants == null ? 0 : numberOfParticipants;
+        int secondNumber = o.numberOfParticipants == null ? 0 : o.numberOfParticipants;
+        return firstNumber - secondNumber;
     }
 }

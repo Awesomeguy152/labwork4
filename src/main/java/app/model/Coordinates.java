@@ -1,4 +1,4 @@
-package model;
+package app.model;
 
 public class Coordinates {
     private long x; //Максимальное значение поля: 707
@@ -19,5 +19,13 @@ public class Coordinates {
 
     public void setY(long y) {
         this.y = y;
+    }
+
+    @Override
+    public String toString() {
+        return "Coordinates{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
     }
 }

@@ -1,4 +1,4 @@
-package model;
+package app.model;
 
 public enum Color {
     BLUE,

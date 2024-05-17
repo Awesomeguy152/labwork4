@@ -1,4 +1,4 @@
-package command;
+package app.command;
 
 public class HelpCommand extends AbstractCommand {
 
@@ -8,6 +8,7 @@ public class HelpCommand extends AbstractCommand {
 
     @Override
     public void execute(String[] commandParts) {
+
         System.out.println("help : вывести справку по доступным командам\n" +
                 "info : вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)\n" +
                 "show : вывести в стандартный поток вывода все элементы коллекции в строковом представлении\n" +
@@ -24,6 +25,8 @@ public class HelpCommand extends AbstractCommand {
                 "sum_of_number_of_participants : вывести сумму значений поля numberOfParticipants для всех элементов коллекции\n" +
                 "count_less_than_genre genre : вывести количество элементов, значение поля genre которых меньше заданного\n" +
                 "filter_less_than_number_of_participants numberOfParticipants : вывести элементы, значение поля numberOfParticipants которых меньше заданного"
+
         );
+
     }
 }
